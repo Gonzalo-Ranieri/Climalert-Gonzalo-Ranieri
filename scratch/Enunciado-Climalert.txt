@@ -1,0 +1,32 @@
+                                               Climalert
+
+Contexto
+Nos han encargado el diseño y desarrollo de Climalert, un Sistema de monitoreo climático y envío
+automático de alertas.
+Climalert funcionará como un servicio autónomo, sin interfaz gráfica, cuya responsabilidad es conectarse
+periódicamente a un proveedor meteorológico externo, procesar los datos recibidos y notificar por correo
+electrónico a las entidades correspondientes cuando se detecten condiciones climáticas peligrosas o
+inusuales. Para esta primera iteración solamente consideraremos como “alerta” a una temperatura mayor a
+35° y una humedad superior a 60%.
+El Sistema debe desarrollarse utilizando Spring Boot y deberán tenerse en cuenta los siguientes puntos:
+
+   1.​ Integración con proveedor externo de clima​
+
+           ○​ El sistema deberá integrarse vía REST con WeatherAPI mediante su endpoint /current.json.
+           ○​ La ubicación consultada será fija (por ejemplo: CABA).
+           ○​ Cada 5 minutos, el Sistema deberá obtener los datos climáticos actuales y almacenarlos
+              localmente para registro histórico y análisis posterior.​
+
+   2.​ Procesamiento de alertas meteorológicas​
+
+           ○​ Cada 1 minuto, el Sistema deberá analizar la última información disponible del clima.
+           ○​ Si se detectan condiciones críticas deberá generarse una alerta (ver siguiente punto).​
+
+   3.​ Notificación por correo electrónico​
+
+           ○​ Al generarse una alerta, el Sistema deberá enviar un correo a los siguientes destinatarios:
+                  ■​ admin@clima.com
+                  ■​ emergencias@clima.com
+                  ■​ meteorologia@clima.com
+           ○​ El correo deberá incluir el detalle completo del clima.
+
