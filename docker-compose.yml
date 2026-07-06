@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: climalert-mailhog
+    ports:
+      - "1025:1025" # Puerto SMTP de MailHog
+      - "8025:8025" # Puerto de la interfaz web de MailHog
+    restart: unless-stopped
